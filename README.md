@@ -20,8 +20,8 @@ Tech which will be embraced:
     Frontend:	Use of React.js
     Backend APIs:	Node.js
     Authentication & Security:	OAuth + JWT (important for fintech)
-    Cloud:	Host on AWS, GCP, or Vercel
-    Database:   mongodb
+    Database:   MongoDB
+    Docker
 
 Future work:
     Chatbot Integration	Ask “How much did I spend last week?”

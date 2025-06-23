@@ -1,0 +1,29 @@
+Initiera Node.js-projekt och installera TypeScript
+    npm init -y
+    npm install typescript ts-node @types/node --save-dev
+-- 
+
+    npm install typescript --save-dev 
+Lägger till TypeScript som beroende i ditt projekt.
+Gör så att kommandot tsc (TypeScript Compiler) blir tillgängligt via npx tsc.
+
+--
+
+Skapa en tsconfig.json (TypeScript-konfiguration)
+    npx tsc --init
+- Den genererar en standardfil. Ett exempel på viktig konfiguration
+
+Installera Express (webbserver) och MongoDB-klient
+    npm install express mongoose
+    npm install @types/express --save-dev
+
+Skapar en source och index
+    mkdir src
+    touch src/index.ts //Funkar på unix kommandon i mitt fall:
+    New-Item -Path "src/index.ts" -ItemType File
+
+För att starta programmet:
+    npx ts-node src/index.ts
+
+Men innan dess laddar vi ner MongoDB
+    - https://www.mongodb.com/try/download/community

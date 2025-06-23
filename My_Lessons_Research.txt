@@ -1,0 +1,21 @@
+Tech learnings:
+    LLM:
+        - An LLM is an AI model trained on a huge amount of text data (like books, websites, code, etc.) that can understand and generate human-like language.
+        - Examples include:
+            ChatGPT (by OpenAI)
+            Gemini etc
+        - What can they do?
+            Summarize text
+            Write code or emails
+            Analyze documents etc
+    Node.js:
+        - Node.js is a JavaScript runtime environment that lets you run JavaScript code outside of a web browser, typically on a server.
+    Why is that important?
+        - Traditionally, JavaScript only ran in browsers to make websites interactive.
+        - Node.js lets you write backend/server-side applications in JavaScript.
+
+    So instead of using languages like Python, Java, or PHP for backend code, you can use JavaScript for both frontend and backend.
+    MongoDB:
+        - NoSQL database
+
+
