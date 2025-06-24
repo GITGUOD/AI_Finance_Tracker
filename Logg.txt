@@ -27,3 +27,61 @@ För att starta programmet:
 
 Men innan dess laddar vi ner MongoDB
     - https://www.mongodb.com/try/download/community
+
+Lägga till Transaktioner
+
+För att se olika transaktioner:
+    - http://localhost:5000/api/transactions
+
+API  testning:
+    - Thunder Client, inbyggd i vscode
+
+Headern:
+    Accept: */*
+    User-Agent: Thunder Client (https://www.thunderclient.com)
+    Content-Type: application/json
+
+JSON content:
+    {
+        "type": "expense",
+        "amount": 99,
+        "category": "Groceries",
+        "note": "ICA food"
+    }
+Svar:
+    {
+        "type": "expense",
+        "amount": 99,
+        "category": "Groceries",
+        "note": "ICA food",
+        "_id": "685a66380715269ffaf091b4",
+        "date": "2025-06-24T08:47:52.039Z",
+        "__v": 0
+    } 
+
+
+Nästa steg:
+Autentisering med JWT
+
+    användare kan logga in
+
+    varje transaktion kopplas till en användare (t.ex. userId)
+
+    man bara ser sina egna transaktioner
+
+--
+
+/register och /login routes
+
+    JWT-tokenhantering
+
+    middleware för skyddade endpoints?
+
+--
+
+frontend (React) som anropar denna backend
+    ett formulär för att lägga till transaktion
+
+    en lista som visar dem
+
+    budgetöversikt
