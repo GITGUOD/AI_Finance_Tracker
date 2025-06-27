@@ -101,6 +101,17 @@ npx create-react-app ai-finance-frontend --template typescript
             - sedan npm install
             - npm list react-scripts //Verifiera rätt version installerades
 
+    Frontend fixad:
+        - Efter uppstart kunde frontend inte ansluta sig till backenden
+        - Klassisk CORS problem
+        Commandon:
+            - npm i cors
+            - npm install --save-dev @types/cors
+    
+    Nästa steg:
+        - Installerat: commandot:
+            - npm i react-router-dom
+                - för att kunna länka etc
 
 --
 

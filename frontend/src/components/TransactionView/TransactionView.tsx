@@ -12,7 +12,7 @@ interface Props {
 function TransactionView(items : Props) {
     return <> 
         <div className="transaction-view">
-            <h2>TransactionList</h2>
+            <h2>Made transactions</h2>
         </div>
     </>
 }
