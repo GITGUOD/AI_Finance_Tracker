@@ -19,9 +19,25 @@
   font-weight: 500;
 }
 
-.transaction-form input,
-.transaction-form select {
+.transaction-form input {
   width: 100%;
+  padding: 0.6rem;
+  border: 1.5px solid #ccc;
+  border-radius: 13px;
+  margin-bottom: 1.3rem;
+  font-size: 1rem;
+}
+.note-input {
+  width: 100%;
+  height: 100px;      /* bigger height */
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;   /* optional, allow vertical resize */
+}
+.transaction-form select {
+  width: 103%;
   padding: 0.6rem;
   border: 1.5px solid #ccc;
   border-radius: 13px;

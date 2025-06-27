@@ -74,7 +74,7 @@ function TransactionForm(types : Props) {
 
         <label>
             note:
-            <input name="note" value = {formData.note} onChange = {handleChange} />
+            <input name="note" className = "note-input" value = {formData.note} onChange = {handleChange} />
         </label>
 
         <button type ="submit"> Save</button>
