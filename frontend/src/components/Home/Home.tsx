@@ -1,17 +1,18 @@
 import "./Home.css"
 import { Link } from 'react-router-dom';
 
-function home() {
+function Home() {
 
     return <>
-        <div className = "Home.css">
-            <label>
-                <Link to="Transactions">View transactions</Link>
-                <Link to="/form">Add transaction</Link>
-            </label>
+        <div className="home-container">
+        <h2>Welcome to Finance Tracker</h2>
+        <div className="home-links">
+            <Link to="/transactions">View Transactions</Link>
+            <Link to="/form">Add Transaction</Link>
         </div>
+    </div>
     </>
 
 }
 
-export default home;
+export default Home;
