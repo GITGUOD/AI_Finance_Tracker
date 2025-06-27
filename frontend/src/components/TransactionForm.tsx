@@ -1,5 +1,6 @@
 import {useState} from "react";
 import axios from "axios";
+import './TransactionForm.css';
 
 //Our attributes
 interface Props {
@@ -50,6 +51,8 @@ function TransactionForm(types : Props) {
     }
 
     return <>
+        <div className="transaction-form">
+        <h2>Add a transaction</h2>
         <form onSubmit = {handleSubmit}>
         <label>
             Type:
@@ -76,7 +79,7 @@ function TransactionForm(types : Props) {
 
         <button type ="submit"> Save</button>
         </form>
-
+        </div>
     </>
     
 }
