@@ -60,7 +60,50 @@ Svar:
     } 
 
 
-Nästa steg:
+Nästa steg: Utveckla vidare frontenden:
+
+npx create-react-app ai-finance-frontend --template typescript
+    - Jag va tvungen o uppdatera min npm
+    npm install -g npm@11.4.2
+
+    - npm uninstall -g create-react-app
+
+    - npx create-react-app my-app eller npm create vite eller kan man skriva npm create cite@4.1.0 för välja versionen
+    //Avinstallera för att sedan installera igen för att säkerställa senaste versionen. Vilket jag inteb rode ha gjort.
+    - cd:a in i rätt, alltså root via:
+        - cd ..
+    // Ta bort den felinstallerade appen:
+        - rm -r my-app
+    - Göra om göra rätt:
+        - npx create-react-app frontend --template typescript
+    - För att köra programmet:
+        - cd frontend
+        - npm start //starta sidan
+
+    - Installera axios:
+            - cd frontend
+            - npm install axios
+                - om man vill Avinstallera
+                    - npm uninstall axios
+
+            - Axios is a promise-based HTTP client for JavaScript, often used in frontend applications (like React) to communicate with a backend server or APIs.
+    - Installera: Prettier - Code formatter för set up, hjälper till med formateringen.
+
+    - Ladda ner bootstrap för en modern css ramverk, gör applikationen mer smooth. //Optional då vi ej använder det än
+        - npm i bootstrap
+
+    Efter har fixat i frontend så saknades packages etc så vi reinstallar och gör en clean
+        - Körde detta commandon:
+            - Remove-Item -Recurse -Force node_modules, package-lock.json
+            - npm cache clean --force //Rensa allt då gamla packages kan korrupta etc
+                - Gjrode detta 2 gånger
+            - npm install react-scripts@5.0.1 --save-exact //För att ladda ner exakt
+            - sedan npm install
+            - npm list react-scripts //Verifiera rätt version installerades
+
+
+--
+
 Autentisering med JWT
 
     användare kan logga in
