@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import './TransactionForm.css';
+import { Transaction } from "../../App";
 
 //Our attributes
 interface Props {
@@ -8,11 +9,23 @@ interface Props {
     amount: string,
     category: string,
     note: string
+    onAddTransaction: (tx: Transaction) => void;
+
 }
 
 //Main component
-function TransactionForm(types : Props) {
-    const [formData, setFormData] = useState(types);
+function TransactionForm({ type, amount, category, note, onAddTransaction } : Props) {
+    const [formData, setFormData] = useState<{
+    type: 'income' | 'expense';
+    amount: string;
+    category: string;
+    note: string;
+    }>({
+    type,
+    amount,
+    category,
+    note
+    });
 
     //Subcomponent, When user types something , event accepterar både input och select element
     function handleChange(event : React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
@@ -33,6 +46,17 @@ function TransactionForm(types : Props) {
             amount: parseFloat(formData.amount) //Converting String to number
         });
 
+        const newTransaction: Transaction = {
+            id: Date.now().toString(),
+            type: formData.type as 'expense' | 'income',
+            amount: parseFloat(formData.amount),
+            category: formData.category,
+            note: formData.note,
+            date: new Date().toISOString(),
+        };
+
+        onAddTransaction(newTransaction);
+
         alert("Transaction saved!");
 
         //Reset
@@ -41,7 +65,6 @@ function TransactionForm(types : Props) {
             amount: '',
             category: '',
             note: ''
-
         });
 
     } catch (error) {
