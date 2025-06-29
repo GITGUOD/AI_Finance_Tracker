@@ -1,0 +1,71 @@
+/* TransactionView.css */
+
+.transaction-view {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 10px;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-item:hover {
+  background-color: #f9f9f9;
+}
+
+.transaction-type {
+  width: 80px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.transaction-type.income {
+  background-color: #4caf50; /* green */
+}
+
+.transaction-type.expense {
+  background-color: #f44336; /* red */
+}
+
+.transaction-amount {
+  font-weight: 700;
+  min-width: 80px;
+  text-align: right;
+  font-size: 1.1em;
+}
+
+.transaction-category {
+  flex-grow: 1;
+  margin-left: 15px;
+  font-style: italic;
+  color: #555;
+}
+
+.transaction-note {
+  margin-left: 15px;
+  flex-grow: 2;
+  color: #777;
+}
+
+.transaction-date {
+  width: 120px;
+  font-size: 0.85em;
+  color: #999;
+  text-align: right;
+}

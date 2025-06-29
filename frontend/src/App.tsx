@@ -3,8 +3,10 @@ import TransactionForm from './components/TransactionForm/TransactionForm';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import TransactionView from './components//TransactionView/TransactionView';
 import Home from './components/Home/Home';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
+//Export i typescript är som att göra filen static, så alla alla komponenter kan använda de
 export interface Transaction {
   id: string;
   type: 'expense' | 'income';
@@ -16,10 +18,19 @@ export interface Transaction {
 
 function App() {
 
+  //Skapar en state variable transactions som är typen Transaction[], initieras som en tom Array
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  function addTransaction(tx: Transaction) {
-    setTransactions(prev => [...prev, tx]);
+  // Hämta transactions från backend när komponenten laddas
+  useEffect(() => {
+    axios.get<Transaction[]>('http://localhost:5000/api/transactions')
+      .then(response => setTransactions(response.data))
+      .catch(err => console.error('Failed to fetch transactions', err));
+  }, []);
+
+  //Tar in en transaction objekt, kopierar alla prev transaktioner med operanden '...' och lägg till den nya transaktionen
+  function addTransaction(transaction: Transaction) {
+    setTransactions(prev => [...prev, transaction]);
   }
   
   return (
