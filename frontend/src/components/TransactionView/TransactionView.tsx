@@ -12,13 +12,28 @@ function TransactionView({ transactions }: Props) {
       {transactions.length === 0 ? (
         <p>No transactions found.</p>
       ) : (
-        <ul>
+        <ul className="transaction-list">
           {transactions.map(tx => (
             <li key={tx.id} className="transaction-item">
-              <p><strong>Amount:</strong> {tx.amount} SEK</p>
-              <p><strong>Category:</strong> {tx.category}</p>
-              {tx.note && <p><strong>Note:</strong> {tx.note}</p>}
-              <p><strong>Date:</strong> {new Date(tx.date).toLocaleDateString()}</p>
+              <span
+                className={`transaction-type ${tx.type}`}
+              >
+                {tx.type}
+              </span>
+              <span className="transaction-amount">
+                {tx.amount} SEK
+              </span>
+              <span className="transaction-category">
+                {tx.category}
+              </span>
+              {tx.note && (
+                <span className="transaction-note">
+                  {tx.note}
+                </span>
+              )}
+              <span className="transaction-date">
+                {new Date(tx.date).toLocaleDateString()}
+              </span>
             </li>
           ))}
         </ul>

@@ -14,7 +14,39 @@ interface Props {
 }
 
 //Main component
+{/* retrieves type, amount, category, note and the method onAddTransaction which is then initieted in app.tsx*/}
 function TransactionForm({ type, amount, category, note, onAddTransaction } : Props) {
+
+    //React hook
+    // Here's how it works:
+    //  - For instance:
+    //      const [namn, setNamn] = useState("Lucas");
+    // namn är själva värdet
+    // setNamn är en funktion du anropar för att ändra det
+    // "Lucas" är startvärdet
+
+    // Eller t.ex
+    /*const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        age: ""
+        });
+        Och sen ändra en del:
+
+    tsx
+    Kopiera
+    Redigera
+        setFormData(prev => ({
+        ...prev,
+        email: "ny@email.com"
+        })); 
+    
+    prev är det gamla objektet
+
+        ...prev kopierar alla gamla fält
+
+    sen skriver vi över bara det vi vill ändra (t.ex. email)    */
+
     const [formData, setFormData] = useState<{
     type: 'income' | 'expense';
     amount: string;
@@ -48,7 +80,7 @@ function TransactionForm({ type, amount, category, note, onAddTransaction } : Pr
 
         const newTransaction: Transaction = {
             id: Date.now().toString(),
-            type: formData.type as 'expense' | 'income',
+            type: formData.type,
             amount: parseFloat(formData.amount),
             category: formData.category,
             note: formData.note,

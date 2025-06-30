@@ -10,6 +10,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  
 }
 
 .transaction-item {
@@ -22,7 +23,7 @@
 }
 
 .transaction-item:hover {
-  background-color: #f9f9f9;
+  background-color: #a5a2a2;
 }
 
 .transaction-type {
