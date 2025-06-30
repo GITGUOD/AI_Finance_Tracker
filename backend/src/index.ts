@@ -1,6 +1,7 @@
 import express from 'express'; //express: A web framework for Node.js — it helps you handle HTTP requests (e.g., GET, POST).
 import mongoose from 'mongoose'; // A library for working with MongoDB — it simplifies database queries and model creation
 import transactionRoutes from './routes/Transactions';
+import authenticationRoutes from './routes/authentication';
 import cors from 'cors';
 
 // Create Express App and Set Port
@@ -15,6 +16,9 @@ app.use(cors({
 app.use(express.json()); //  line tells Express to automatically parse incoming JSON request bodies, which is very common in APIs (e.g., when a client sends POST data)
 
 app.use('/api/transactions', transactionRoutes);
+
+app.use('/api/users', authenticationRoutes);
+
 
 //Route
 app.get('/', (req, res) => {
