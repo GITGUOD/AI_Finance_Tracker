@@ -3,7 +3,10 @@ import mongoose from 'mongoose'; // A library for working with MongoDB — it si
 import transactionRoutes from './routes/Transactions';
 import authenticationRoutes from './routes/authentication';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
+
+dotenv.config();
 // Create Express App and Set Port
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,7 +32,8 @@ app.get('/', (req, res) => {
 const mongoUri = 'mongodb://localhost:27017/finance-assistant';
 
 //Connect to MongoDB and Start the Server
-mongoose.connect(mongoUri)
+mongoose.connect(process.env.MONGO_URI || '')
+//innan i parametern va  det mongoUri
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {
