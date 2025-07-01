@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useAuth } from './components/Context/AuthContext';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import ProtectedRoute from './components/Redirection';
 
 //Export i typescript är som att göra filen static, så alla alla komponenter kan använda de
 export interface Transaction {
@@ -30,7 +31,11 @@ function App() {
       return;
     }
 
-    axios.get<Transaction[]>('http://localhost:5000/api/transactions')
+    axios.get<Transaction[]>('http://localhost:5000/api/transactions', {
+      headers: {
+      Authorization: `Bearer ${token}`,
+    }
+    })
       .then(response => setTransactions(response.data))
       .catch(err => console.error('Failed to fetch transactions', err));
   }, [token]);
@@ -43,29 +48,39 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/*When route is by default '/'. Path is directed towards /home*/}
+        {/* Redirect root to home */}
         <Route path="/" element={<Navigate to="/home" />} />
+        {/* Public routes */}
         <Route path="/home" element={<Home />} />
-        
-        {/*Login route*/}
-
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        {/*Logout route*/}
+        {/* Protected routes */}
+        <Route
+          path="/form"
+          element={
+            <ProtectedRoute>
+              <TransactionForm
+                type="expense"
+                amount=""
+                category=""
+                note=""
+                onAddTransaction={addTransaction}
+              />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/Register" element={<Register />} />
+        <Route
+          path="/transactions"
+          element={
+            <ProtectedRoute>
+              <TransactionView transactions={transactions} />
+            </ProtectedRoute>
+          }
+        />
 
-
-        {/*Path is directed towards /form and the element is the imported Transaction form component*/}
-
-        <Route path="/form" element={<TransactionForm type="expense" amount="" category="" note="" onAddTransaction={addTransaction}/>} />
-
-        {/*View Transactions*/}
-
-        <Route path="/transactions" element={<TransactionView transactions={transactions} />} />
-
-        {/*Else, 404 error, not found site*/}
-
+        {/* 404 fallback */}
         <Route path="*" element={<div>404 - Not Found</div>} />
       </Routes>
     </Router>

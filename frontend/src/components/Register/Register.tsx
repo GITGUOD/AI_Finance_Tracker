@@ -10,7 +10,8 @@ function Register() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/register', {
+        //Vår route är så pga av backenden har redan inställt som (/api/users, sedan routern), se rad 25. Likadant för login pga av routern authentication
+      await axios.post('http://localhost:5000/api/users/register', {
         username,
         password
       });
