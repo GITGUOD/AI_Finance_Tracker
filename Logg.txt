@@ -113,17 +113,21 @@ npx create-react-app ai-finance-frontend --template typescript
             - npm i react-router-dom
                 - för att kunna länka etc
 
---
+Nästa steg: utveckla ett autentiseringssystem
+    - Autentisering med JWT
+        - användare kan logga in
+        - varje transaktion kopplas till en användare (t.ex. userId)
+        - man bara ser sina egna transaktioner
 
-Autentisering med JWT
+    Installera dependencies:
+    - npm install express mongoose bcrypt jsonwebtoken cors dotenv
+    - npm install -D @types/express @types/bcrypt @types/jsonwebtoken @types/cors @types/node ts-node typescript
 
-    användare kan logga in
+    Skapa en .env fil som ska ha dina lokala filer/känsliga filer
+    Generera en jwt-nyckel via kommandot:
+        - openssl rand -base64 32
 
-    varje transaktion kopplas till en användare (t.ex. userId)
 
-    man bara ser sina egna transaktioner
-
---
 
 /register och /login routes
 
@@ -139,3 +143,5 @@ frontend (React) som anropar denna backend
     en lista som visar dem
 
     budgetöversikt
+
+

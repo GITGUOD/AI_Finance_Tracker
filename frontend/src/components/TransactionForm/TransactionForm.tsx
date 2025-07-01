@@ -2,6 +2,7 @@ import {useState} from "react";
 import axios from "axios";
 import './TransactionForm.css';
 import { Transaction } from "../../App";
+import { useAuth } from "../Context/AuthContext";
 
 //Our attributes
 interface Props {
@@ -16,7 +17,9 @@ interface Props {
 //Main component
 {/* retrieves type, amount, category, note and the method onAddTransaction which is then initieted in app.tsx*/}
 function TransactionForm({ type, amount, category, note, onAddTransaction } : Props) {
+    const { token } = useAuth();
 
+//Learnings
     //React hook
     // Here's how it works:
     //  - For instance:
@@ -47,12 +50,16 @@ function TransactionForm({ type, amount, category, note, onAddTransaction } : Pr
 
     sen skriver vi över bara det vi vill ändra (t.ex. email)    */
 
+    //Okej i vårt fall:
+    // Vi definierar formData och setFormData som ska ändra formData
     const [formData, setFormData] = useState<{
+    //Våra default värden, dvs vad vi berättar med typescript hur objektet ska se ut
     type: 'income' | 'expense';
     amount: string;
     category: string;
     note: string;
     }>({
+    //Detta är våra initial värden som de ska starta med.
     type,
     amount,
     category,
@@ -72,11 +79,13 @@ function TransactionForm({ type, amount, category, note, onAddTransaction } : Pr
         e.preventDefault(); //Stop page from refreshing
 
     try {
-        //Sending data to the backend
+        //sending a post request to the backend
         await axios.post("http://localhost:5000/api/transactions", {
             ...formData,
             amount: parseFloat(formData.amount) //Converting String to number
-        });
+        }, {
+  headers: { Authorization: `Bearer ${token}` }
+});
 
         const newTransaction: Transaction = {
             id: Date.now().toString(),

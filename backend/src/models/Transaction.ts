@@ -25,4 +25,12 @@ const transactionSchema = new mongoose.Schema({
     //const t = new Transaction({ type: 'income', amount: 1000 });
 // Sparar därefter till MongoDB
     //await t.save(); // sparar till MongoDB
+
+    transactionSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();  // Kopiera _id till id
+    delete returnedObject._id;                          // Ta bort _id
+    delete returnedObject.__v;                          // Ta bort __v (version)
+  }
+});
 export const Transaction = mongoose.model('Transaction', transactionSchema);

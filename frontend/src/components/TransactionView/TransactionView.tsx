@@ -6,6 +6,8 @@ interface Props {
 }
 
 function TransactionView({ transactions }: Props) {
+  console.log('Transaction IDs:', transactions.map(tx => tx.id));
+
   return (
     <div className="transaction-view">
       <h2>Made Transactions</h2>

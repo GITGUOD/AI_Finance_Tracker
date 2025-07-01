@@ -18,4 +18,16 @@ Tech learnings:
     MongoDB:
         - NoSQL database
 
+Vad är Middleware för något?
+    - Middleware är ett begrepp inom programmering och systemutveckling som beskriver en mjukvarukomponent eller ett lager som ligger mellan två andra delar i en applikation eller ett system och fungerar som en slags "mellanhand".
+        - Vad gör middleware?
+            - Hantera kommunikation och dataflöde mellan olika delar, till exempel mellan klient och server.
+            - Bearbeta, filtrera eller ändra inkommande förfrågningar och utgående svar.
+            - Utföra gemensamma funktioner som autentisering, loggning, felhantering, säkerhet, datakonvertering med mera.
+            - Förenkla och strukturera koden genom att dela upp ansvaret i separata lager.
+
+Vad är 'context' för något?
+    - "context" refers to the surrounding information, state, or environment in which something is happening.
+       It helps a program or function "understand" how it should behave depending on where or how it's used.
+    - Here in react, it is used as a share state across multiple components.
 
