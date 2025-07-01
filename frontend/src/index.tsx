@@ -15,6 +15,7 @@ root.render(
     <App />
   </React.StrictMode>
   */
+//Wrapping <App /> in <AuthProvider> allows all components inside your app to access the auth token and login/logout methods via useAuth().
 
   <AuthProvider>
     <App />

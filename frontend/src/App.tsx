@@ -6,6 +6,8 @@ import Home from './components/Home/Home';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from './components/Context/AuthContext';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 //Export i typescript är som att göra filen static, så alla alla komponenter kan använda de
 export interface Transaction {
@@ -44,6 +46,15 @@ function App() {
         {/*When route is by default '/'. Path is directed towards /home*/}
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
+        
+        {/*Login route*/}
+
+        <Route path="/login" element={<Login />} />
+
+        {/*Logout route*/}
+
+        <Route path="/Register" element={<Register />} />
+
 
         {/*Path is directed towards /form and the element is the imported Transaction form component*/}
 
