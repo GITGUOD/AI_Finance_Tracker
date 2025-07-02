@@ -21,29 +21,8 @@ export interface Transaction {
 }
 
 function App() {
-
-  //Skapar en state variable transactions som är typen Transaction[], initieras som en tom Array
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
   const { token } = useAuth();
-  // Hämta transactions från backend när komponenten laddas
-  useEffect(() => {
-    if (!token) {
-      return;
-    }
 
-    axios.get<Transaction[]>('http://localhost:5000/api/transactions', {
-      headers: {
-      Authorization: `Bearer ${token}`,
-    }
-    })
-      .then(response => setTransactions(response.data))
-      .catch(err => console.error('Failed to fetch transactions', err));
-  }, [token]);
-
-  //Tar in en transaction objekt, kopierar alla prev transaktioner med operanden '...' och lägg till den nya transaktionen
-  function addTransaction(transaction: Transaction) {
-    setTransactions(prev => [...prev, transaction]);
-  }
   
   return (
     <Router>
@@ -65,7 +44,7 @@ function App() {
                 amount=""
                 category=""
                 note=""
-                onAddTransaction={addTransaction}
+                onAddTransaction={() => ""}
               />
             </ProtectedRoute>
           }
@@ -75,7 +54,7 @@ function App() {
           path="/transactions"
           element={
             <ProtectedRoute>
-              <TransactionView transactions={transactions} />
+              <TransactionView />
             </ProtectedRoute>
           }
         />

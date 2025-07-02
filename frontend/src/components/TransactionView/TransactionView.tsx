@@ -1,11 +1,25 @@
 import "./TransactionView.css";
 import { Transaction } from "../../App";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useAuth } from "../Context/AuthContext";
 
-interface Props {
-  transactions: Transaction[];
-}
 
-function TransactionView({ transactions }: Props) {
+function TransactionView() {
+  const { token } = useAuth();
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    if (!token) return;
+
+    axios.get<Transaction[]>("http://localhost:5000/api/transactions", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => setTransactions(response.data))
+      .catch((err) => console.error("Failed to fetch transactions", err));
+  }, [token]);
+
+  
   console.log('Transaction IDs:', transactions.map(tx => tx.id));
 
   return (

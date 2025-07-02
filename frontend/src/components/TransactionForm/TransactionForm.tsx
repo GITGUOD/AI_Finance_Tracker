@@ -80,21 +80,22 @@ function TransactionForm({ type, amount, category, note, onAddTransaction } : Pr
 
     try {
         //sending a post request to the backend
-        await axios.post("http://localhost:5000/api/transactions", {
-            ...formData,
+        const response = await axios.post('http://localhost:5000/api/transactions', {
+      ...formData,
             amount: parseFloat(formData.amount) //Converting String to number
         }, {
   headers: { Authorization: `Bearer ${token}` }
 });
 
         const newTransaction: Transaction = {
-            id: Date.now().toString(),
-            type: formData.type,
-            amount: parseFloat(formData.amount),
-            category: formData.category,
-            note: formData.note,
-            date: new Date().toISOString(),
+        id: response.data._id, // 🔑 Hämta rätt fält!
+        type: response.data.type,
+        amount: response.data.amount,
+        category: response.data.category,
+        note: response.data.note,
+        date: response.data.date,
         };
+        console.log("🔥 Raw response from backend:", response.data);
 
         onAddTransaction(newTransaction);
 
