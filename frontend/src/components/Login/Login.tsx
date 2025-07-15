@@ -20,14 +20,22 @@ export default function LoginForm() {
         } catch (error) {
             alert('Login failed!');
         }
-    }
+    };
+
+    const handleGoToRegister = () => {
+        navigate('/register');
+    };
 
 
     return <>
     <form onSubmit={handleSubmit}>
+    <h2>Register</h2>
       <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
       <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button type="submit">Login</button>
     </form>;
+
+    <p>Don't have an account?</p>
+      <button onClick={handleGoToRegister}>Register</button>
     </>
 }
