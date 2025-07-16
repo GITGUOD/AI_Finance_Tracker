@@ -22,11 +22,7 @@ app.use(express.json()); //  line tells Express to automatically parse incoming 
 console.log('Registering /api/transactions route...');
 
 //Adding authmiddleware for token control, simply the correct user should be able to check the token
-app.use('/api/transactions', transactionRoutes);
-
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
-});
+app.use('/api/transactions', authMiddleware, transactionRoutes);
 
 app.use('/api/users', authenticationRoutes);
 

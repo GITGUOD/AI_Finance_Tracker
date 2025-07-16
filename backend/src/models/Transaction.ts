@@ -17,6 +17,10 @@ const transactionSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    userID: {
+        type: String,
+        required: true
+    },
 });
 //Här skapar du en modell med namnet Transaction, baserad på transactionSchema.
 //Med denna modell kan du lägga till, läsa, uppdatera och ta bort transaktioner i databasen.

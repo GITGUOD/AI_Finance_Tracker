@@ -3,7 +3,15 @@ import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
-export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+export interface AuthenticatedRequest extends Request {
+  userID?: string;
+}
+
+interface JwtPayload {
+  userID: string;
+}
+
+export function authMiddleware(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   //Hämtar headern från reqest
   const authHeader = req.headers.authorization;
   if (!authHeader) {
@@ -23,9 +31,15 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
 
   try {
     //Kontrollerar om token är giltig
-    const decoded = jwt.verify(token, JWT_SECRET);
-    (req as any).user = decoded;
+    const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload;
+    console.log('Decoded tokens:', decoded);
+
+    req.userID = decoded.userID;
+    //(req as any).user = decoded;
     //Går vidare
+
+    console.log('Decoded userID from token:', req.userID);
+
     next();
   } catch (err) {
     res.status(401).json({ error: 'Invalid token' });
