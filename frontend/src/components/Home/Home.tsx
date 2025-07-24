@@ -28,7 +28,7 @@ function Home() {
         <div className="home-links">
             <Link to="/transactions">View Transactions</Link>
             <Link to="/form">Add Transaction</Link>
-            <Link to="/AI_Chat_Bot">Transaction assistent </Link>
+            <Link to="/ChatBot">Transaction assistent </Link>
         </div>
     </div>
     </>

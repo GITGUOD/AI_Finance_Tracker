@@ -127,6 +127,41 @@ Nästa steg: utveckla ett autentiseringssystem
     Generera en jwt-nyckel via kommandot:
         - openssl rand -base64 32
 
+Frontend: Lagt till så att registrering redirection funkar nu
+
+Backend:
+    Varje användare har nu sina unika transaktioner då vi la till ett userID på varje transaktion, kopllad till usern
+    
+Future work:
+    {Integration av TINK, för att koppla realtids transaktioner till applikationen
+        Tink APIn kommer endast ha en read funktion till vårt bankkonto och den sköter allt självständigt för säkerheten.
+        
+        Skapat konto och hämta client id och alla andra känslig data och sätta in på .env filen.
+        Skapat en secret key samt lagt in de på min .env fil. Pusha inte denna! Jag påbörjade i en branch men insåg snabbt att
+        jag inte hade resurser för att kunna koppla realtidstransaktioner, det krävs någon form av produktionstillgång}
+
+ToDo:
+    - Backend: implementation av LLM bot
+        - Lite research:
+        - Vad jag har gjort än så länge:
+        gått in på https://www.nomic.ai/gpt4all och laddat ner den, sparat softwaren här
+            - C:\Users\tonny\gpt4all
+            - cda in i backend och commandot:
+                - pip install gpt4all
+            - Använda flask och python för chatbotten eftersom python hanterar det bättre
+            - Sparade chat modellen in på backend
+            - python main.py för att köra igång den.
+            - pip install flask-cors //ladda ner cors cross-site request för flask så att localhost:3000 kan kommunicera med localhost:5001
+            - pip install pymongo för att koppla databasen till flask
+            - Glömde connecta via applikationen också
+            - går inte pusha filerna, då de är för stora
+            - vi får ladda ner:
+                -  git lfs install
+
+
+
+    - Frontend: Fixa Designen på login och register css
+
 
 
 /register och /login routes

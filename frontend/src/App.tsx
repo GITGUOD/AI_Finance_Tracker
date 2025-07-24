@@ -3,12 +3,11 @@ import TransactionForm from './components/TransactionForm/TransactionForm';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import TransactionView from './components//TransactionView/TransactionView';
 import Home from './components/Home/Home';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useAuth } from './components/Context/AuthContext';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import ProtectedRoute from './components/Redirection';
+import Chatbot from './components/Chatbot';
 
 //Export i typescript är som att göra filen static, så alla alla komponenter kan använda de
 export interface Transaction {
@@ -55,6 +54,15 @@ function App() {
           element={
             <ProtectedRoute>
               <TransactionView />
+            </ProtectedRoute>
+          }
+        />
+
+         <Route
+          path="/chatbot"
+          element={
+            <ProtectedRoute>
+              <Chatbot/>
             </ProtectedRoute>
           }
         />
