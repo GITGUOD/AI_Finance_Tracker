@@ -8,20 +8,18 @@ Aiming for a job-ready project that:
     - Demonstrates real-world problem solving
 
 Project Idea: “AI-Powered Personal Finance Tracker & Investment Assistant”
-    A full-stack web application that tracks a user’s income, expenses, savings, and investments, and provides AI-powered insights, budget recommendations, and alerts. It includes integration with real-time stock/crypto APIs and uses ML for personalized advice.
+    A full-stack web application that tracks a user’s income, expenses, and provides AI-powered chatbot with the integration of the LLM model gpt4all. With a simple user interface where the user can chat with the bot, asking questions such as show my latest transactions and the bot will search it up for you as an assistent. Manually adding and viewing transactions is also possible with the help of a secure authentication page and personalized home menu for checking the features.
 
 Why I think it is Relevant
     This project matches the current tech requirements for a starter/junior role.
-    Fintech Growth	Focus on budgeting, investment, and automation
-    Data Engineering	Handling and analyzing financial data
+    Fintech Growth	Focus on budgeting, and finance tracking
+    AI usage: In today's age, AI has become a hot topic and the integration of a LLM AI is quite relevant.
 
 Tech which will be embraced:
-    AI/ML:	Personalized financial insights using LLM
+    AI:	Personalized financial insights using LLM programmed in Python and integrated through gpt4all's models
     Frontend:	Use of React.js
-    Backend APIs:	Node.js
+    Backend APIs:	Node.js (Express.js + typescript)
     Authentication & Security:	OAuth + JWT (important for fintech)
     Database:   MongoDB
-    Docker
-
-Future work:
-    Chatbot Integration	Ask “How much did I spend last week?”
+    Docker: Will be added for future work
+    integration of tink for checking your transaction in realtime is also added t o future work
