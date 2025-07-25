@@ -140,7 +140,6 @@ Future work:
         Skapat en secret key samt lagt in de på min .env fil. Pusha inte denna! Jag påbörjade i en branch men insåg snabbt att
         jag inte hade resurser för att kunna koppla realtidstransaktioner, det krävs någon form av produktionstillgång}
 
-ToDo:
     - Backend: implementation av LLM bot
         - Lite research:
         - Vad jag har gjort än så länge:
@@ -160,23 +159,5 @@ ToDo:
 
 
 
-    - Frontend: Fixa Designen på login och register css
-
-
-
-/register och /login routes
-
-    JWT-tokenhantering
-
-    middleware för skyddade endpoints?
-
---
-
-frontend (React) som anropar denna backend
-    ett formulär för att lägga till transaktion
-
-    en lista som visar dem
-
-    budgetöversikt
 
 
