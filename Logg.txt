@@ -157,7 +157,10 @@ ToDo:
             - går inte pusha filerna, då de är för stora
             - vi får ladda ner:
                 -  git lfs install
+            - installera alla nödvändiga: pip install flask flask-cors pymongo gpt4all
 
+
+to start: docker-compose up --build
 
 
     - Frontend: Fixa Designen på login och register css

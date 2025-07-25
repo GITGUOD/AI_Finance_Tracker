@@ -1,0 +1,4 @@
+flask
+flask-cors
+pymongo
+gpt4all

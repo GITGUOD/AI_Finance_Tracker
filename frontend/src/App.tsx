@@ -7,7 +7,7 @@ import { useAuth } from './components/Context/AuthContext';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import ProtectedRoute from './components/Redirection';
-import Chatbot from './components/Chatbot';
+import Chatbot from './components/chatbot';
 
 //Export i typescript är som att göra filen static, så alla alla komponenter kan använda de
 export interface Transaction {
