@@ -7,3 +7,9 @@ You need 3 terminals:
     So do this in this order: 2->3->1
     And of course you need to download all the necessary dependencies such as express etc
     Future work, dockerize this project
+
+    download this in backend:
+    npm install express mongoose cors dotenv
+
+    frontend:
+    npm install react-router-dom
