@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import "./Login.css"
+
 
 export default function LoginForm() {
     const [username, setUsername] = useState('');
@@ -29,7 +31,7 @@ export default function LoginForm() {
 
     return <>
     <form onSubmit={handleSubmit}>
-    <h2>Register</h2>
+    <h2>Login</h2>
       <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
       <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button type="submit">Login</button>
