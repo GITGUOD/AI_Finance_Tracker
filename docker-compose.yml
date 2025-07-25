@@ -1,3 +1,4 @@
+version: "3.9"
 
 services:
   frontend:
@@ -5,17 +6,35 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - backend
+      - node-backend
     environment:
-      - REACT_APP_API_URL=http://localhost:5001
+      - REACT_APP_API_URL=http://localhost:3000
     command: npm start
 
-  backend:
+  python-backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: ./backend/python-backend
+      dockerfile: Dockerfile.python
+    ports:
+      - "5001:5001"
+  node-backend:
+    build:
+      context: ./backend/node-backend
+      dockerfile: Dockerfile.node
     ports:
       - "5000:5000"
-      - "5001:5001"
-    command: bash -c "python3 main.py & npm start"
+    depends_on:
+      - python-backend
+      - mongodb
+    environment:
+      - MONGO_URL=mongodb://localhost:27017/finance-assistant
 
+  mongodb:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

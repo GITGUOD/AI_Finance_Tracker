@@ -1,0 +1,22 @@
+# Använd Node-bild
+FROM node:18
+
+# Sätt arbetsmapp
+WORKDIR /app
+
+# Installera beroenden
+COPY package*.json ./
+RUN npm install -g ts-node typescript
+
+# Kopiera in resten av projektet
+COPY . .
+
+# Instaling the app dependencies
+RUN npm install
+# Kompilera TypeScript -> JavaScript
+RUN npm run build
+
+EXPOSE 5000
+
+# Kör den kompilerade filen
+CMD ["node", "dist/server.js"]

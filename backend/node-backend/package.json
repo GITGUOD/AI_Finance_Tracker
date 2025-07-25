@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "AI-Powered Personal Finance Tracker &amp; Investment Assistant",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+
+
   },
   "keywords": [],
   "author": "",
@@ -14,7 +19,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.0.8",
+    "@types/node": "^24.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },

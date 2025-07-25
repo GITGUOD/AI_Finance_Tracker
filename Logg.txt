@@ -159,6 +159,15 @@ ToDo:
                 -  git lfs install
             - installera alla nödvändiga: pip install flask flask-cors pymongo gpt4all
 
+Lägga till docker:
+    - docker-compose down
+    - docker-compose up --build
+
+    ladda ner detta:
+        - npm install ts-node typescript @types/node --save-dev
+    eftersom vi får error och att node-js tror att vi kör javascript men vi kör typescript
+
+
 
 to start: docker-compose up --build
 
