@@ -1,0 +1,9 @@
+You need 3 terminals:
+    1. for the frontend. Cd into it and type
+        - npm start
+    2. cd backend and use command python main.py
+    3. cd backend and use the command: npx ts-node src/index.ts
+
+    So do this in this order: 2->3->1
+    And of course you need to download all the necessary dependencies such as express etc
+    Future work, dockerize this project
